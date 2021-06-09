@@ -11,5 +11,9 @@ export class UserEntity {
   name: string;
 
   @Column({ nullable: true })
+  @IsString()
+  password: string;
+
+  @Column({ nullable: true })
   thirdPartyId: string;
 }
