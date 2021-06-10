@@ -14,7 +14,8 @@ import { CreateUserDto } from '../users/dto/create.user.dto';
 import { LocalAuthGuard } from './guards/localAuth.guard';
 import { LoginUserDto } from './dto/login.user.dto';
 import GoogleAuthGuard from './guards/googleAuth.guard';
-import FacebookAuthGuard from "./guards/facebookAuth.guard";
+import FacebookAuthGuard from './guards/facebookAuth.guard';
+import InstagramAuthGuard from './guards/instagramAuth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -40,6 +41,13 @@ export class AuthController {
   @Get('/facebook/redirect')
   @UseGuards(FacebookAuthGuard)
   facebookLoginCallback(@Request() req) {
+    const token = req.user.token;
+    return { token };
+  }
+
+  @Get('/instagram/redirect')
+  @UseGuards(InstagramAuthGuard)
+  instagramLoginCallback(@Request() req) {
     const token = req.user.token;
     return { token };
   }

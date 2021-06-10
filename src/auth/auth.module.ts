@@ -9,6 +9,7 @@ import { GoogleStrategy } from './strategies/google.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { FacebookStrategy } from './strategies/facebook.strategy';
+import { InstagramStrategy } from './strategies/instagram.strategy';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
     JwtStrategy,
     GoogleStrategy,
     FacebookStrategy,
+    InstagramStrategy,
   ],
 })
 export class AuthModule {}
