@@ -16,6 +16,7 @@ import { LoginUserDto } from './dto/login.user.dto';
 import GoogleAuthGuard from './guards/googleAuth.guard';
 import FacebookAuthGuard from './guards/facebookAuth.guard';
 import InstagramAuthGuard from './guards/instagramAuth.guard';
+import VkontakteAuthGuard from './guards/vkontakteAuth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -48,6 +49,13 @@ export class AuthController {
   @Get('/instagram/redirect')
   @UseGuards(InstagramAuthGuard)
   instagramLoginCallback(@Request() req) {
+    const token = req.user.token;
+    return { token };
+  }
+
+  @Get('/vkontakte/redirect')
+  @UseGuards(VkontakteAuthGuard)
+  vkontakteLoginCallback(@Request() req) {
     const token = req.user.token;
     return { token };
   }

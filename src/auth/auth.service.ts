@@ -13,6 +13,7 @@ export enum Provider {
   GOOGLE = 'google',
   FACEBOOK = 'facebook',
   INSTAGRAM = 'instagram',
+  VKONTAKTE = 'vkontakte',
 }
 
 @Injectable()
