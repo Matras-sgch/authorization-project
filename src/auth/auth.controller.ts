@@ -14,6 +14,7 @@ import { CreateUserDto } from '../users/dto/create.user.dto';
 import { LocalAuthGuard } from './guards/localAuth.guard';
 import { LoginUserDto } from './dto/login.user.dto';
 import GoogleAuthGuard from './guards/googleAuth.guard';
+import FacebookAuthGuard from "./guards/facebookAuth.guard";
 
 @Controller('auth')
 export class AuthController {
@@ -34,6 +35,13 @@ export class AuthController {
   async login(@Request() req): Promise<{ token: string }> {
     const { user } = req;
     return await this.authService.login(user);
+  }
+
+  @Get('/facebook/redirect')
+  @UseGuards(FacebookAuthGuard)
+  facebookLoginCallback(@Request() req) {
+    const token = req.user.token;
+    return { token };
   }
 
   @Get('/google/redirect')

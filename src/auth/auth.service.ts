@@ -11,6 +11,7 @@ import { UserEntity } from '../users/user.entity';
 
 export enum Provider {
   GOOGLE = 'google',
+  FACEBOOK = 'facebook',
 }
 
 @Injectable()
