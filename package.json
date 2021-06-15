@@ -73,6 +73,12 @@
       "json",
       "ts"
     ],
+    "modulePathIgnorePatterns": [
+      ".*\\.module\\.ts$",
+      "main.ts",
+      "http-redirect.ts",
+      "src/auth/strategies/*"
+    ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
