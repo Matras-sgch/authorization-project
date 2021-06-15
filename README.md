@@ -1,3 +1,5 @@
+> before start: go to node_modules/passport-vkontakte/lib/strategy.js and in the verifyWrapper function replace var arity = verify.length; to var arity = 5;
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
