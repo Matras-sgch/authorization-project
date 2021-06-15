@@ -55,22 +55,22 @@ export class AuthService {
     return Boolean(newUser);
   }
 
-  private async comparePassword(enteredPassword: string, dbPassword: string) {
+  async comparePassword(enteredPassword: string, dbPassword: string) {
     const match = await bcrypt.compare(enteredPassword, dbPassword);
     return match;
   }
 
-  private async hashPassword(password: string) {
+  async hashPassword(password: string) {
     const hash = await bcrypt.hash(password, 8);
     return hash;
   }
 
-  private async getJwtToken(userId: number): Promise<string> {
+  async getJwtToken(userId: number): Promise<string> {
     const token = await this.jwtService.signAsync({ userId });
     return token;
   }
 
-  async validateOAuthLogin(profile, provider: Provider) {
+  async validateOAuthLogin(profile, provider) {
     let user = await this.usersService.getUserByThirdPartyId(profile.id);
     if (!user) {
       user = await this.usersService.createUserFromOAuth(profile, provider);
